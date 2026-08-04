@@ -29,7 +29,7 @@ function generateId() {
 
 addBookToLibrary("The Hobbit", "J.R.R. Tolkein", 319)
 addBookToLibrary("Harry Potter", "J.K. Rowling", 328)
-console.log(myLibrary)
+console.log(myLibrary) // console.log() to check working
 
 
 
@@ -48,3 +48,37 @@ function displayBooks() {
 }
 
 displayBooks()
+
+
+
+
+const add = document.querySelector(".add_book")
+const dialog = document.querySelector("#bookDialog")
+const close = document.querySelector("#closeBtn")
+
+add.addEventListener("click", () => {
+    dialog.showModal()
+})
+
+close.addEventListener("click", () => {
+    dialog.close()
+    form.reset()
+})
+
+
+
+const form = document.querySelector("#bookForm")
+form.addEventListener("submit", (e) => {
+    e.preventDefault()
+
+    
+    const title = document.querySelector("#book_title").value
+    const author = document.querySelector("#book_author").value
+    const pages = document.querySelector("#book_pages").value
+    
+    addBookToLibrary(title, author, pages)
+    displayBooks()
+    form.reset()
+    dialog.close() 
+})
+
