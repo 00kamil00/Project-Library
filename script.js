@@ -2,12 +2,17 @@ const myLibrary = []
 
 
 
-function Book(title, author, pages) {
+function Book(title, author, pages, read = true) {
     // the constructor
     this.title = title
     this.author = author
     this.pages = pages
     this.id = generateId()
+    this.read = read
+}
+
+Book.prototype.toggleRead = function() {
+    this.read = !this.read
 }
 
 
@@ -56,6 +61,23 @@ function displayBooks() {
         delete_btn.addEventListener("click", () => {
             const index = myLibrary.findIndex(book => book.id === item.id)
             myLibrary.splice(index, 1)
+            displayBooks()
+        })
+
+
+        const read_btn = document.createElement('button')
+        if (item.read) {
+            read_btn.textContent = "Read"
+            read_btn.style.backgroundColor = "green"
+        } else {
+            read_btn.textContent = "Not Read"
+            read_btn.style.backgroundColor = "red"
+        }
+
+        new_item.append(read_btn)
+
+        read_btn.addEventListener("click", () => {
+            item.toggleRead()
             displayBooks()
         })
     })
