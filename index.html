@@ -8,24 +8,32 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <button class="add_book">Add New Book</button>
-    <div class="container"></div>
+    <div class="btn_container">
+        <button class="add_book">Add New Book</button>
+    </div>
+    <div class="container">
+        <!-- here are the added books -->
+    </div>
     
     <dialog id="bookDialog">
         <form id="bookForm">
+            <div class="form_item">
+                <label for="book_title">Book Title:</label>
+                <input type="text" id="book_title">
+            </div>
+            <div class="form_item">
+                <label for="book_author">Book Author:</label>
+                <input type="text" id="book_author">
+            </div>
+            <div class="form_item">
+                <label for="book_pages">Book Pages:</label>
+                <input type="number" min="1" id="book_pages">
+            </div>
 
-            <label for="book_title">Book Title:</label>
-            <input type="text" id="book_title">
-
-            <label for="book_author">Book Author:</label>
-            <input type="text" id="book_author">
-
-            <label for="book_pages">Book Pages:</label>
-            <input type="number" min="1" id="book_pages">
-
-
-            <button type="submit">Submit</button>
-            <button type="button" id="closeBtn">Close</button>
+            <div class="form_buttons">
+                <button type="submit" id="submit">Submit</button>
+                <button type="button" id="closeBtn">Close</button>
+            </div>
         </form>
     </dialog>
 </body>
