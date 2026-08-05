@@ -44,6 +44,20 @@ function displayBooks() {
 
         new_item.textContent = `${item.title}, ${item.author} with ${item.pages} pages`
         container.appendChild(new_item)
+
+
+        const delete_btn = document.createElement('button')
+        delete_btn.textContent = "Remove"
+        new_item.appendChild(delete_btn)
+
+        new_item.dataset.id = item.id
+
+
+        delete_btn.addEventListener("click", () => {
+            const index = myLibrary.findIndex(book => book.id === item.id)
+            myLibrary.splice(index, 1)
+            displayBooks()
+        })
     })
 }
 
