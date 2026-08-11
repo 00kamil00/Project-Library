@@ -1,19 +1,20 @@
 const myLibrary = []
 
 
+class Book {
+    constructor(title, author, pages, read = true) {
+        this.title = title
+        this.author = author
+        this.pages = pages
+        this.read = read
+        this.id = generateId()
+    }
 
-function Book(title, author, pages, read = true) {
-    // the constructor
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.id = generateId()
-    this.read = read
+    toggleRead() {
+        this.read = !this.read
+    }
 }
 
-Book.prototype.toggleRead = function() {
-    this.read = !this.read
-}
 
 
 
